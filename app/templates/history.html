@@ -1,0 +1,64 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main-content %}
+<br>
+<div class="container  align-items-center justify-content-center ">
+
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light"></thead><tr><th><h1 class="table-title align-items-center justify-content-center">History</h1></th><th><a class="btn btn-link btn-rounded btn-sm fw-bold" href="{% url 'clrhist' %}">Clear History</a></th></tr></thead>
+    <thead class="bg-light">
+      <tr>
+        <th>Name</th>
+        <th>XGBClassifier</th>
+        <th>LogisticRegression</th>
+        <th>RandomForestClassifier</th>
+        <th>Model Score</th>
+        <th>Status</th>
+      </tr>
+
+    </thead>
+    {% if data != "" %}
+    <tbody>
+      {% for fm in data %}
+      <tr>
+        <td>
+          <div class="d-flex align-items-center">
+            <img
+                src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            <div class="ms-3">
+              <p class="fw-bold mb-1">{{fm.user}}</p>
+              <p class="text-muted mb-0">{{fm.user.email}}</p>
+            </div>
+          </div>
+        </td>
+        
+        <td>{{fm.xgb}}</td>
+        <td>{{fm.lr}}</td>
+        <td>{{fm.rf}}</td>
+        <td>{{fm.mdsc}}</td>
+        {% if fm.status == "No Fraud" %}
+        <td>
+          <span class="badge badge-success rounded-pill d-inline">{{fm.status}}</span>
+        </td>
+      </tr>
+      {% elif fm.status == "Fraud" %}
+      <td>
+        <span class="badge badge-warning rounded-pill d-inline">{{fm.status}}</span>
+      </td>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+    {% else %}
+    <tbody>
+      <h3 class="align-items-center justify-content-center">There have no data</h3>
+    </tbody>
+    {% endif %}
+  </table>
+  </div>
+  <br>
+  {% endblock main-content %}

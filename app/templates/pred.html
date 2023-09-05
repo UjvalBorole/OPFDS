@@ -1,0 +1,113 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main-content %}
+
+<div class="container mb-6  align-items-center justify-content-center ">
+  <br>
+  <br>
+  <div class="card text-center p-3">
+    <form method="post" class="row g-3 needs-validation" novalidate>
+  {% csrf_token %}
+      <h2>Enter the details of Prediction</h1>
+      <div class="col-md-4 position-relative">
+        <div class="form-outline">
+          <input type="text" class="form-control" id="validationTooltip01" name="accno" placeholder="Enter the Source Account Number" required />
+          <label for="validationTooltip01" class="form-label">Account Number</label>
+          <div class="valid-tooltip">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <div class="form-outline">
+          <input type="text" class="form-control" id="validationTooltip02" name="desacno" placeholder="Enter the Destinition Account Number" required />
+          <label for="validationTooltip02" class="form-label">Merchant Account Number</label>
+          <div class="valid-tooltip">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <div class="input-group form-outline">
+          <span class="input-group-text" id="validationTooltipUsernamePrepend">steps</span>
+          <input
+            type="text"
+            name="steps"
+            class="form-control"
+            id="validationTooltipUsername"
+            aria-describedby="validationTooltipUsernamePrepend"
+            placeholder="Enter the Process of transaction days are needed"
+            required
+          />
+          <label for="validationTooltipUsername" class="form-label">Process transaction days</label>
+          <div class="invalid-tooltip">Please provide the  days of valid transaction.</div>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <div class="form-outline">
+          <input type="text" name="amt" class="form-control" id="validationTooltip05" placeholder="Enter the Amount of Transaction" required />
+          <label for="validationTooltip05" class="form-label">Amount</label>
+          <div class="invalid-tooltip">Please provide a valid Amount.</div>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <div class="form-outline">
+          <select class="form-select form-select-sm"  name="age" aria-label=".form-select-sm example">
+            <option selected>select Categorized Age </option>
+            <option value="1" name="1">0 &ge; 18</option>
+            <option value="2" name="2">19-25</option>
+            <option value="3" name="3">26-35</option>
+            <option value="4" name="4">36-45</option>
+            <option value="5" name="5">46-55</option>
+            <option value="6" name="6">56-65</option>
+            <option value="7" name="7">&gt;65</option>
+            <option value="8" name="8">Unknown</option>
+            
+          </select>
+          
+          <div class="invalid-tooltip">Please provide a valid Categorized Age.</div>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <div class="form-outline">
+          <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example">
+            <option selected>select Gender for customer</option>
+            <option value="1" name="1">Female</option>
+            <option value="2" name="2">Male</option>
+            <option value="3" name="3">Enterprise</option>
+            <option value="4" name="4">Unknown</option>
+          </select>
+          
+          <div class="invalid-tooltip">Please provide a valid Gender Selection.</div>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <div class="form-outline">
+          <select class="form-select form-select-sm" name="cat"  aria-label=".form-select-sm example">
+            <option selected>select categoried data</option>
+            <option value="0" name="0">bars and restaurants</option>
+            <option value="1" name="1">contents</option>
+            <option value="2" name="2">fashion</option>
+            <option value="3" name="3">food</option>
+            <option value="4" name="4">health</option>
+            <option value="5" name="5">home</option>
+            <option value="6" name="6">hotel services</option>
+            <option value="7" name="7">hyper</option>
+            <option value="8" name="8">leisure</option>
+            <option value="9" name="9">other services</option>
+            <option value="10" name="10">sports and toys</option>
+            <option value="11" name="11">tech</option>
+            <option value="12" name="12">transportation</option>
+            <option value="13" name="13">travel</option>
+            <option value="14" name="14">wellness and beauty</option>
+          </select>
+          
+          <div class="invalid-tooltip">Please provide a valid categoried data.</div>
+        </div>
+      </div>
+      
+      <div class="col-12 pt-2">
+        <input type="submit" class="btn btn-primary" value="Submit Record">
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock main-content %}

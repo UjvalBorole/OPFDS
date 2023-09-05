@@ -1,0 +1,35 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main-content %}
+<br><br><br>
+
+<div class="container d-flex align-items-center justify-content-center ">
+  <div class="card text-center">
+ {% if isfraud != "Fraud" %}
+     <div class="card-header d-flex align-items-center mb-3 pb-1">
+          <i class="fas fa-circle-check fa-2x me-3" style="color: #3c20bb;"></i>
+        <span class="h1 fw-bold mb-0">{{isfraud}}</span>
+      </div>
+  {% elif isfraud == "Fraud" %}
+      <div class="card-header d-flex align-items-center mb-3 pb-1">
+        <i class="fas fa-circle-exclamation fa-2x me-3" style="color: #e71b25;"></i>
+      <span class="h1 fw-bold mb-0">{{isfraud}}</span>
+    </div>
+  {% endif %}
+    <!-- <div class="card-header">{{isfraud}}</div> -->
+    <div class="card-body">
+      <h5 class="card-title">Model Score</h5>
+      <p class="card-text">{{model_score}}</p>
+      <form action="" method="get">
+
+      {% csrf_token %}
+
+        <input type="submit" value="Go Back" class="btn btn-success">
+    </form>
+    </div>
+    <!-- <div class="card-footer text-muted">2 days ago</div> -->
+  </div>
+  </div>
+<br><br><br>
+{% endblock main-content %}
