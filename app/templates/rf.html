@@ -1,0 +1,53 @@
+{% extends 'app.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main-content %}
+
+<div class="container d-flex align-items-center justify-content-center">
+ 
+  <section class="vh-100">  <br><br>
+    <div class="d-flex align-items-center justify-content-center"><button
+      type="text"
+      class="btn btn-secondary "
+      data-mdb-toggle="tooltip"
+      data-mdb-html="true"
+      title="<em>RandomForest</em> <u>for</u> <b>OPFDS</b>"
+    >
+     RandomForest Algorithm for OPFDS
+    </button></div>
+    <br>
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-10 col-lg-6 col-xl-7">
+          <div class="bg-image hover-overlay hover-zoom hover-shadow ripple">
+            <!-- <h4 class="justify-content-center align-items-center">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Receiver Operating Characteristic</h4> -->
+            <img src="{% static 'img/RF.png' %}" class="w-100" />
+            <!-- <h6 class="justify-content-center align-items-center">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;False Positive Rate</h6> -->
+            <a href="#!">
+              <div class="mask" style="background-color: hsla(195, 83%, 58%, 0.2)"></div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form>
+            <div class="card">
+              <div class="card-header">Accuracy of RandomForest Algorithm</div>
+              <div class="card-body">
+                <h6 class="card-title">Classification Report for Random Forest Classifier:</h6>
+                <p class="card-text">{{report}}</p>
+                <h6 class="card-title">Confusion Matrix of Random Forest Classifier:</h6>
+                <p class="card-text">{{matrix}}</p>
+                
+                
+              </div>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</div>
+{% endblock main-content %}
+ 
